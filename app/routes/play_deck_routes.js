@@ -39,7 +39,7 @@ router.post('/decks', requireToken, (req, res, next) => {
 
   PlayDeck.create(req.body.deck)
     .then(deck => {
-      console.log('deck is', deck)
+      // console.log('deck is', deck)
       res.status(201).json({ deck: deck.toObject() })
     })
     .catch(next)
@@ -47,7 +47,8 @@ router.post('/decks', requireToken, (req, res, next) => {
 
 // UPDATE - PATCH /decks/<id>
 router.patch('/decks/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.owner
+  delete req.user.id
+  // console.log('req.user.id is ', req.user.id)
 
   PlayDeck.findById(req.params.id)
     .then(handle404)
