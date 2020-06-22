@@ -24,7 +24,14 @@ const playDeckSchema = new mongoose.Schema({
     required: false,
     trim: true
   },
-  cardsInDeck: []
+  cardsInDeck: [],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
+}, {
+  timestamps: true
 })
 
 module.exports = mongoose.model('PlayDeckSchema', playDeckSchema)
