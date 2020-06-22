@@ -1,12 +1,8 @@
 const express = require('express')
-// jsonwebtoken docs: https://github.com/auth0/node-jsonwebtoken
 const crypto = require('crypto')
-// Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
-// bcrypt docs: https://github.com/kelektiv/node.bcrypt.js
 const bcrypt = require('bcrypt')
 
-// see above for explanation of "salting", 10 rounds is recommended
 const bcryptSaltRounds = 10
 
 // pull in error types and the logic to handle them and set status codes
@@ -45,6 +41,7 @@ router.post('/sign-up', (req, res, next) => {
       // return necessary params to create a user
       return {
         email: req.body.credentials.email,
+        userName: req.body.credentials.userName,
         hashedPassword: hash
       }
     })
