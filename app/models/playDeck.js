@@ -34,4 +34,4 @@ const playDeckSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('PlayDeckSchema', playDeckSchema)
+module.exports = mongoose.model('PlayDeck', playDeckSchema)
