@@ -6,7 +6,8 @@ const playDeckSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxlength: 25
   },
   ownerNotes: {
     type: String,
