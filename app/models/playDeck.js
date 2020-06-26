@@ -5,15 +5,15 @@ const mongoose = require('mongoose')
 const playDeckSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
-    trim: true,
-    maxlength: 25
+    required: false,
+    trim: true
+    // maxlength: 25
   },
   ownerNotes: {
     type: String,
     required: false,
-    minlength: 0,
-    maxlength: 400,
+    // minlength: 0,
+    // maxlength: 400,
     trim: true
   },
   isFavorite: {
